@@ -1,0 +1,15 @@
+numpy
+matplotlib
+opencv-python
+pyexr
+plyfile
+tqdm
+pillow>=8.4.0
+yacs>=0.1.6
+scipy
+ipython
+ninja
+cython
+git+https://github.com/jamesbowman/openexrpython.git
+git+https://github.com/xheon/PyMarchingCubes.git
+pyexr

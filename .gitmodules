@@ -1,0 +1,3 @@
+[submodule "panoptic-reconstruction"]
+	path = panoptic-reconstruction
+	url = git@github.com:jdgalviss/panoptic-reconstruction.git
