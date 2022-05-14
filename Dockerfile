@@ -84,6 +84,8 @@ RUN /bin/bash -c "git clone https://github.com/xheon/MinkowskiEngine.git; cd Min
 
 
 ENV PYTHONPATH=/usr/src/app/panoptic-reconstruction
+COPY .bashrc /root/.bashrc
+WORKDIR /usr/src/app/panoptic-reconstruction
 # ENTRYPOINT "cd /usr/src/app/panoptic-reconstruction/lib/csrc; python3 setup.py install" && /bin/bash
 
 # python3 tools/test_net_single_image.py -i data/front3d-sample/rgb_0007.png -o output/test.png
