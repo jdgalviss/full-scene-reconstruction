@@ -1,6 +1,6 @@
 FROM nvidia/cuda:11.3.1-devel-ubuntu20.04
 # # updating the CUDA Linux GPG Repository Key
-COPY ./cuda-keyring_1.0-1_all.deb cuda-keyring_1.0-1_all.deb
+RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.0-1_all.deb
 # RUN rm /etc/apt/sources.list.d/cuda.list && rm /etc/apt/sources.list.d/nvidia-ml.list && dpkg -i cuda-keyring_1.0-1_all.deb
 RUN rm /etc/apt/sources.list.d/cuda.list && dpkg -i cuda-keyring_1.0-1_all.deb
 
