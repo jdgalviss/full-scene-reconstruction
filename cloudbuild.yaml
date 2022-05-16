@@ -3,4 +3,4 @@ steps:
   args: [ 'build', '-t', 'gcr.io/arched-logic-349914/full-reconstruction', '-f', 'Dockerfile', '.' ]
 timeout: 5000s
 options:
-  machineType: e2-highcpu-32
+  machineType: E2_HIGHCPU_32
