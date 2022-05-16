@@ -28,3 +28,9 @@ Full Scene Reconstruction of a 3D scene (geometry, instance ids, semantic labels
     ```
 
 4. Docker image and sumsampled data: https://drive.google.com/drive/folders/14Qy7Ht28ZTLarItfupBevFdfaoi7eB6u?usp=sharing
+
+5. Train
+    Inside docker:
+    ```bash
+    python tools/train_net.py --config configs/front3d_train_3d.yaml --output-path output/
+    ```
