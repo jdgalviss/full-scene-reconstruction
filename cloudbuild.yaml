@@ -1,6 +1,0 @@
-steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/arched-logic-349914/full-reconstruction', '-f', 'Dockerfile', '.' ]
-timeout: 5000s
-options:
-  machineType: E2_HIGHCPU_32
