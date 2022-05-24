@@ -10,6 +10,7 @@ docker run -it --rm  \
     -v $XSOCK:$XSOCK \
     -v $HOME/.Xauthority:/root/.Xauthority \
     -v `pwd`/panoptic-reconstruction:/usr/src/app/panoptic-reconstruction \
+    -v `pwd`/differential_rendering:/usr/src/app/differential_rendering \
     --shm-size 8G \
     scene_reconstruction "$@"
 
