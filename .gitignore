@@ -2,5 +2,5 @@ Dockerfile_copy
 *.deb
 daemon.txt
 *.tar
-.ipynb_checkpoints/
-__pycache__/
+*.ipynb_checkpoints/*
+*__pycache__/*
