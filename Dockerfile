@@ -56,6 +56,8 @@ RUN /bin/bash -c "jupyter nbextension install --py --user k3d; jupyter nbextensi
 
 RUN pip install "git+https://github.com/facebookresearch/pytorch3d.git"
 RUN pip install plotly
+RUN pip install imageio scikit-image
+
 ENV PYTHONPATH=/usr/src/app/panoptic-reconstruction
 COPY .bashrc /root/.bashrc
 WORKDIR /usr/src/app/panoptic-reconstruction

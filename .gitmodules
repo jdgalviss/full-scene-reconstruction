@@ -1,3 +1,6 @@
 [submodule "panoptic-reconstruction"]
 	path = panoptic-reconstruction
 	url = https://github.com/jdgalviss/panoptic-reconstruction.git
+[submodule "spsg"]
+	path = spsg
+	url = https://github.com/jdgalviss/spsg.git

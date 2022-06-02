@@ -24,7 +24,7 @@ Full Scene Reconstruction of a 3D scene (geometry, instance ids, semantic labels
 3. Run inference inside docker container
 
     ```bash
-    python tools/test_net_single_image.py -i data/front3d-sample/rgb_0007.png -o <output_path>
+    python tools/test_net_single_image.py -i data/front3d-sample/rgb_0007.png -o output/
     ```
 
 4. Docker image and sumsampled data: https://drive.google.com/drive/folders/14Qy7Ht28ZTLarItfupBevFdfaoi7eB6u?usp=sharing
