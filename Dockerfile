@@ -47,7 +47,7 @@ RUN /bin/bash -c "cd ${INSTALL_DIR}; git clone https://github.com/NVIDIA/apex.gi
 RUN /bin/bash -c "cd ${INSTALL_DIR}; git clone https://github.com/facebookresearch/maskrcnn-benchmark.git; cd maskrcnn-benchmark; cuda_dir='maskrcnn_benchmark/csrc/cuda'; perl -i -pe 's/AT_CHECK/TORCH_CHECK/' maskrcnn_benchmark/csrc/cuda/deform_pool_cuda.cu maskrcnn_benchmark/csrc/cuda/deform_conv_cuda.cu; python3 setup.py build develop"
 
 # ## Install MinkowskiEngine
-ENV MAX_JOBS=2
+ENV MAX_JOBS=4
 RUN /bin/bash -c "git clone https://github.com/xheon/MinkowskiEngine.git; cd MinkowskiEngine; python3 setup.py install --blas=openblas --force_cuda"
 
 # RUN pip install jupyterlab
@@ -60,6 +60,8 @@ RUN pip install plotly
 RUN pip install imageio scikit-image
 RUN pip install git+https://github.com/tatsy/torchmcubes.git
 
+RUN pip install "git+https://github.com/facebookresearch/pytorch3d.git"
+RUN pip install plotly
 ENV PYTHONPATH=/usr/src/app/panoptic-reconstruction
 COPY .bashrc /root/.bashrc
 WORKDIR /usr/src/app/panoptic-reconstruction
