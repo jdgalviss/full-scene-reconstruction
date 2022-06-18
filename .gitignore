@@ -6,3 +6,4 @@ daemon.txt
 *__pycache__/*
 *.pdf
 *.pptx
+.vscode

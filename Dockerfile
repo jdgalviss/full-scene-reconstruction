@@ -59,6 +59,6 @@ RUN pip install plotly
 RUN pip install imageio scikit-image
 RUN pip install git+https://github.com/tatsy/torchmcubes.git
 
-ENV PYTHONPATH=/usr/src/app/panoptic-reconstruction
+ENV PYTHONPATH=/usr/src/app/panoptic-reconstruction:/usr/src/app/spsg/torch
 COPY .bashrc /root/.bashrc
 WORKDIR /usr/src/app/panoptic-reconstruction
