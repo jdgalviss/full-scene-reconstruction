@@ -39,3 +39,11 @@ Run jupyter lab inside Docker
     ```bash
     jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser
     ```
+
+Copy to vm:
+gcloud compute scp --recurse adl4cv:~/full-scene-reconstruction/panoptic-reconstruction/out ./out
+
+Cop from vm
+gcloud compute scp --recurse adl4cv:~/full-scene-reconstruction/panoptic-reconstruction/out ./out
+
+gcloud compute scp --recurse train_data/1pXnuDYAj8r  adl4cv:~/full-scene-reconstruction/spsg/data/train_data
