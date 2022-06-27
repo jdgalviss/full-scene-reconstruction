@@ -4,3 +4,6 @@ daemon.txt
 *.tar
 *.ipynb_checkpoints/*
 *__pycache__/*
+*.pdf
+*.pptx
+.vscode

@@ -24,7 +24,7 @@ Full Scene Reconstruction of a 3D scene (geometry, instance ids, semantic labels
 3. Run inference inside docker container
 
     ```bash
-    python tools/test_net_single_image.py -i data/front3d-sample/rgb_0007.png -o <output_path>
+    python tools/test_net_single_image.py -i data/front3d-sample/rgb_0007.png -o output/
     ```
 
 4. Docker image and sumsampled data: https://drive.google.com/drive/folders/14Qy7Ht28ZTLarItfupBevFdfaoi7eB6u?usp=sharing
@@ -39,3 +39,11 @@ Run jupyter lab inside Docker
     ```bash
     jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser
     ```
+
+Copy to vm:
+gcloud compute scp --recurse adl4cv:~/full-scene-reconstruction/panoptic-reconstruction/out ./out
+
+Cop from vm
+gcloud compute scp --recurse adl4cv:~/full-scene-reconstruction/panoptic-reconstruction/out ./out
+
+gcloud compute scp --recurse train_data/1pXnuDYAj8r  adl4cv:~/full-scene-reconstruction/spsg/data/train_data
