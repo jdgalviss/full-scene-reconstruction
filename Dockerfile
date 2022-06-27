@@ -1,8 +1,4 @@
 FROM nvidia/cuda:11.3.1-devel-ubuntu20.04
-# # updating the CUDA Linux GPG Repository Key
-COPY ./cuda-keyring_1.0-1_all.deb cuda-keyring_1.0-1_all.deb
-# RUN rm /etc/apt/sources.list.d/cuda.list && rm /etc/apt/sources.list.d/nvidia-ml.list && dpkg -i cuda-keyring_1.0-1_all.deb
-RUN rm /etc/apt/sources.list.d/cuda.list && dpkg -i cuda-keyring_1.0-1_all.deb
 
 # Install basic packages
 ENV TZ=Europe/London
@@ -25,6 +21,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     libopenblas-dev \
     && apt-get -y clean all \
     && rm -rf /var/lib/apt/lists/*
+
+# # updating the CUDA Linux GPG Repository Key
+RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.0-1_all.deb
+# RUN rm /etc/apt/sources.list.d/cuda.list && rm /etc/apt/sources.list.d/nvidia-ml.list && dpkg -i cuda-keyring_1.0-1_all.deb
+RUN rm /etc/apt/sources.list.d/cuda.list && dpkg -i cuda-keyring_1.0-1_all.deb
 
 # # Install python dependencies
 COPY requirements.txt .
@@ -60,5 +61,7 @@ RUN pip install imageio scikit-image
 RUN pip install git+https://github.com/tatsy/torchmcubes.git
 
 ENV PYTHONPATH=/usr/src/app/panoptic-reconstruction:/usr/src/app/spsg/torch
+RUN pip install "git+https://github.com/facebookresearch/pytorch3d.git"
+RUN pip install plotly
 COPY .bashrc /root/.bashrc
 WORKDIR /usr/src/app/panoptic-reconstruction

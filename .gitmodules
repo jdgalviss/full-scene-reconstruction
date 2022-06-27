@@ -2,5 +2,8 @@
 	path = panoptic-reconstruction
 	url = https://github.com/jdgalviss/panoptic-reconstruction.git
 [submodule "spsg"]
-	path = spsg
-	url = https://github.com/jdgalviss/spsg.git
+    path = spsg
+    url = https://github.com/jdgalviss/spsg.git
+[submodule "BlenderProc"]
+	path = BlenderProc
+	url = https://github.com/ZuzkaU/BlenderProc.git
