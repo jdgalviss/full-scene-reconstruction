@@ -17,3 +17,4 @@ jupyterlab
 k3d
 tensorboard
 tensorboardX
+mesh2sdf
