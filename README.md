@@ -32,7 +32,7 @@ Full Scene Reconstruction of a 3D scene (geometry, instance ids, semantic labels
 5. Train
     Inside docker:
     ```bash
-    python tools/train_net.py --config configs/front3d_train_3d.yaml --output-path output/
+    python tools/train_full_reconstruction .py --config configs/front3d_train_3d.yaml --output-path output/
     ```
 
 Run jupyter lab inside Docker

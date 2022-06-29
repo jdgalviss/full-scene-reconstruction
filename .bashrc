@@ -99,6 +99,10 @@ fi
 #fi
 ## Add commands to build panoptic reconstruction library
 alias python=python3
+# panoptic-reconstruction lib
 cd /usr/src/app/panoptic-reconstruction/lib/csrc/
 python3 setup.py install
+#spsg
+cd /usr/src/app/spsg/torch
+source install_utils.sh 
 cd /usr/src/app/panoptic-reconstruction
