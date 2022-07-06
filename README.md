@@ -44,6 +44,6 @@ Copy to vm:
 gcloud compute scp --recurse adl4cv:~/full-scene-reconstruction/panoptic-reconstruction/out ./out
 
 Cop from vm
-gcloud compute scp --recurse adl4cv:~/full-scene-reconstruction/panoptic-reconstruction/out ./out
+gcloud compute scp --recurse adl4cv:~/full-scene-reconstruction/panoptic-reconstruction/out ./Documents/adl4cv_output
 
 gcloud compute scp --recurse train_data/1pXnuDYAj8r  adl4cv:~/full-scene-reconstruction/spsg/data/train_data
