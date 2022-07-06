@@ -15,3 +15,6 @@ git+https://github.com/xheon/PyMarchingCubes.git
 pyexr
 jupyterlab
 k3d
+tensorboard
+tensorboardX
+mesh2sdf
