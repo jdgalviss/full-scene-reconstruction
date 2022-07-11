@@ -35,7 +35,7 @@ RUN pip install --no-cache-dir torch==1.10.0+cu113 torchvision==0.11.0+cu113 tor
 
 # =========== Install maskrcnn-benchmark ===============
 ENV INSTALL_DIR=/usr/src/app
-ENV MAX_JOBS=2
+ENV MAX_JOBS=4
 ENV CUDA_HOME=/usr/local/cuda-11.3
 ENV CXX=c++
 ENV PATH=$PATH:/usr/local/cuda-11.3/bin
@@ -47,7 +47,7 @@ RUN /bin/bash -c "cd ${INSTALL_DIR}; git clone https://github.com/NVIDIA/apex.gi
 RUN /bin/bash -c "cd ${INSTALL_DIR}; git clone https://github.com/facebookresearch/maskrcnn-benchmark.git; cd maskrcnn-benchmark; cuda_dir='maskrcnn_benchmark/csrc/cuda'; perl -i -pe 's/AT_CHECK/TORCH_CHECK/' maskrcnn_benchmark/csrc/cuda/deform_pool_cuda.cu maskrcnn_benchmark/csrc/cuda/deform_conv_cuda.cu; python3 setup.py build develop"
 
 # ## Install MinkowskiEngine
-ENV MAX_JOBS=2
+ENV MAX_JOBS=4
 RUN /bin/bash -c "git clone https://github.com/xheon/MinkowskiEngine.git; cd MinkowskiEngine; python3 setup.py install --blas=openblas --force_cuda"
 
 # RUN pip install jupyterlab
