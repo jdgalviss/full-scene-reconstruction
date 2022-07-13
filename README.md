@@ -47,3 +47,17 @@ Full Scene Reconstruction of a 3D scene (geometry, instance ids, semantic labels
     ```bash
     jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser
     ```
+#FAQ
+
+If docker build fails due to missing cuda libraries, edit the file in /etc/docker/daemon.json so it looks like this:
+    ```bash
+    {
+        "runtimes": {
+            "nvidia": {
+                "path": "nvidia-container-runtime",
+                "runtimeArgs": []
+            }
+        },
+        "default-runtime": "nvidia"
+    }
+    ```
