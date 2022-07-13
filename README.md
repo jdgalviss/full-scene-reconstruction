@@ -49,7 +49,7 @@ Full Scene Reconstruction of a 3D scene (geometry, instance ids, semantic labels
     ```
 #FAQ
 
-If docker build fails due to missing cuda libraries, edit the file in /etc/docker/daemon.json so it looks like this:
+    If docker build fails due to missing cuda libraries, edit the file in /etc/docker/daemon.json so it looks like this:
 
     ```bash
     {
