@@ -34,8 +34,13 @@ Full Scene Reconstruction of a 3D scene (geometry, instance ids, semantic labels
     ```bash
     python tools/train_full_reconstruction.py --config configs/front3d_train_3d.yaml --output-path output/
     ```
+6. Evaluation
+    Inside docker:
+    ```bash
+    python tools/evaluate_net.py --config configs/front3d_evaluate.yaml --output output/
+    ```
 
-Run jupyter lab inside Docker
+7. Run jupyter lab inside Docker
     ```bash
     jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser
     ```
@@ -44,6 +49,13 @@ Copy to vm:
 gcloud compute scp --recurse adl4cv:~/full-scene-reconstruction/panoptic-reconstruction/out ./out
 
 Cop from vm
-gcloud compute scp --recurse adl4cv:~/full-scene-reconstruction/panoptic-reconstruction/out ./Documents/adl4cv_output
+gcloud compute scp --recurse adl4cv3-1:~/full-scene-reconstruction/panoptic-reconstruction/output/00/model_color ./Documents/adl4cv_output
 
 gcloud compute scp --recurse train_data/1pXnuDYAj8r  adl4cv:~/full-scene-reconstruction/spsg/data/train_data
+
+
+gcloud compute scp --recurse adl4cv3-1:~/full-scene-reconstruction/panoptic-reconstruction/output/37_2022-07-1101_18_20.803012/model_0024000.pth ./Documents/adl4cv_output/01/
+
+gdown https://drive.google.com/uc?id=17cErxq0HqYcTmDbzmhvHV6ph5Y7SDePE
+
+Model_color: https://transfer.sh/87ih5d/model_0073000.pth

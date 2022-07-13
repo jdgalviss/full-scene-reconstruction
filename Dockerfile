@@ -63,5 +63,6 @@ RUN pip install git+https://github.com/tatsy/torchmcubes.git
 ENV PYTHONPATH=/usr/src/app/panoptic-reconstruction:/usr/src/app/spsg/torch
 RUN pip install "git+https://github.com/facebookresearch/pytorch3d.git"
 RUN pip install plotly
+RUN pip install torchmetrics
 COPY .bashrc /root/.bashrc
 WORKDIR /usr/src/app/panoptic-reconstruction
