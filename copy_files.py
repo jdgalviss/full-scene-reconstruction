@@ -14,16 +14,18 @@ resources = open(resources_path, 'r').readlines()
 
 total_length = len(resources)
 new_lines=[]
+count = 0
+total_samples = 2000
 for idx, sample in tqdm(enumerate(resources), total=total_length):
 
-    if idx%4 == 0:
+    if count <= total_samples:
         scene_id = sample.split('/')[0]
         id = sample.split('/')[1].replace('\n', '')
         # read viewlist
         # print(data_path + scene_id + f"/viewlist_{id}.txt")
         try:
-            viewlist = open(data_path + scene_id + f"/viewlist_{id}.txt", 'r')
-            viewlist_length = len(viewlist.readlines())
+            viewlist = open(data_path + scene_id + f"/viewlist_{id}.txt", 'r').readlines()
+            viewlist_length = len(viewlist)
         except:
             continue
         if viewlist_length > 2:
@@ -55,6 +57,10 @@ for idx, sample in tqdm(enumerate(resources), total=total_length):
             file_dest = new_data_path + scene_id + f"/segmentation_{id}.mapped.npz"
             shutil.copyfile(file_orig,file_dest)
 
+            file_orig = data_path + scene_id + f"/segmap_{id}.mapped.npz"
+            file_dest = new_data_path + scene_id + f"/segmap_{id}.mapped.npz"
+            shutil.copyfile(file_orig,file_dest)
+
             #viewlist
             file_orig = data_path + scene_id + f"/viewlist_{id}.txt"
             file_dest = new_data_path + scene_id + f"/viewlist_{id}.txt"
@@ -65,6 +71,25 @@ for idx, sample in tqdm(enumerate(resources), total=total_length):
             file_dest = new_data_path + scene_id + f"/weighting_{id}.npz"
             shutil.copyfile(file_orig,file_dest)
 
+            #copy images
+            for view in viewlist:
+                view = view.replace('\n', '')
+                file_orig = data_path + scene_id + f"/rgb_{view}.png"
+                file_dest = new_data_path + scene_id + f"/rgb_{view}.png"
+                shutil.copyfile(file_orig,file_dest)
+
+                file_orig = data_path + scene_id + f"/campose_{view}.npz"
+                file_dest = new_data_path + scene_id + f"/campose_{view}.npz"
+                shutil.copyfile(file_orig,file_dest)
+
+
+
+
+
+
+            count += 1
+    else:
+        break
 with open(new_resources_path, 'w') as fp:
     fp.write('\n'.join(new_lines))
 
