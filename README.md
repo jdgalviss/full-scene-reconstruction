@@ -18,6 +18,8 @@ Full Scene Reconstruction of a 3D scene (geometry, instance ids, semantic labels
     ```bash
     docker build . -t scene_reconstruction
     ```
+
+Small version of the dataset: 1xz_KbgSvqX1yDTTtD0WfgMi6CrCVHoxp
 ## Run Inference
 1. Run Docker container
     ```bash
@@ -47,18 +49,18 @@ Full Scene Reconstruction of a 3D scene (geometry, instance ids, semantic labels
     ```bash
     jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser
     ```
-#FAQ
+# FAQ
 
-    If docker build fails due to missing cuda libraries, edit the file in /etc/docker/daemon.json so it looks like this:
+If docker build fails due to missing cuda libraries, edit the file in /etc/docker/daemon.json so it looks like this:
 
-    ```bash
-    {
-        "runtimes": {
-            "nvidia": {
-                "path": "nvidia-container-runtime",
-                "runtimeArgs": []
-            }
-        },
-        "default-runtime": "nvidia"
-    }
-    ```
+```bash
+{
+    "runtimes": {
+        "nvidia": {
+            "path": "nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    },
+    "default-runtime": "nvidia"
+}
+```
