@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 
 resources_path = 'panoptic-reconstruction/resources/front3d/train_list_3d.txt'
-new_resources_path = 'panoptic-reconstruction/resources/front3d/train_list_3d_new.txt'
+new_resources_path = 'panoptic-reconstruction/resources/front3d/train_list_3d_new2.txt'
 
 data_path = '/media/jdgalviss/JDG/TUM/front3d-full/front3d-full/'
 new_data_path = 'front-3d/'
@@ -15,7 +15,7 @@ resources = open(resources_path, 'r').readlines()
 total_length = len(resources)
 new_lines=[]
 count = 0
-total_samples = 2000
+total_samples = 25000
 for idx, sample in tqdm(enumerate(resources), total=total_length):
 
     if count <= total_samples:
@@ -81,11 +81,6 @@ for idx, sample in tqdm(enumerate(resources), total=total_length):
                 file_orig = data_path + scene_id + f"/campose_{view}.npz"
                 file_dest = new_data_path + scene_id + f"/campose_{view}.npz"
                 shutil.copyfile(file_orig,file_dest)
-
-
-
-
-
 
             count += 1
     else:
