@@ -18,27 +18,43 @@ Full Scene Reconstruction of a 3D scene (geometry, instance ids, semantic labels
     ```bash
     docker build . -t scene_reconstruction
     ```
+
+Small version of the dataset: 1xz_KbgSvqX1yDTTtD0WfgMi6CrCVHoxp
 ## Run Inference
 1. Run Docker container
     ```bash
     source run_docker.sh 
     ```
 
-2. [Download pretrained model](http://kaldir.vc.in.tum.de/panoptic_reconstruction/panoptic-front3d.pth) and put it in the data folder
+2. [Download pretrained model](https://drive.google.com/file/d/1ZY2_s7OS4FWvNcDWl9O8wSLj1K2AAqjC/view?usp=sharing) and put it in the panoptic-reconstruction/data folder
 
 3. Run inference inside docker container
+    ```bash
+    python tools/test_net.py
+    ```
+## Run Training
+You can download a subset of the dataset from [here](https://drive.google.com/file/d/1xz_KbgSvqX1yDTTtD0WfgMi6CrCVHoxp/view?usp=sharing). In case, you use this subset, you should modify the panoptic-reconstruction/lib/config/paths_catalog.py file in line 17 -> change **train_list_3d.txt** for **train_list_3d_subsampled_2000.txt**.
+
+2. Run Docker container. Make sure you set the <path-to-your-data-folder> in the run_docker.sh file to the correct path where you downloaded and extracted the data.
 
     ```bash
-    python tools/test_net_single_image.py
+    source run_docker.sh 
     ```
 
-4. Train
+3. Train
     Inside docker:
     ```bash
     python tools/train_full_reconstruction.py --config configs/front3d_train_3d.yaml --output-path output/
     ```
-5. Evaluation
-    Inside docker:
+
+## Run Evaluation
+1. Run Docker container
+    ```bash
+    source run_docker.sh 
+    ```
+
+5. Run evaluation: Make sure you set the correct path to the trained model in front3d_evaluate.yaml
+
     ```bash
     python tools/evaluate_net.py --config configs/front3d_evaluate.yaml --output output/
     ```
@@ -47,18 +63,18 @@ Full Scene Reconstruction of a 3D scene (geometry, instance ids, semantic labels
     ```bash
     jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser
     ```
-#FAQ
+# FAQ
 
-    If docker build fails due to missing cuda libraries, edit the file in /etc/docker/daemon.json so it looks like this:
+If docker build fails due to missing cuda libraries, edit the file in /etc/docker/daemon.json so it looks like this:
 
-    ```bash
-    {
-        "runtimes": {
-            "nvidia": {
-                "path": "nvidia-container-runtime",
-                "runtimeArgs": []
-            }
-        },
-        "default-runtime": "nvidia"
-    }
-    ```
+```bash
+{
+    "runtimes": {
+        "nvidia": {
+            "path": "nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    },
+    "default-runtime": "nvidia"
+}
+```
