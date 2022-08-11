@@ -3,6 +3,9 @@
 # full-scene-reconstruction
 Full Scene Reconstruction of a 3D scene (geometry, instance ids, semantic labels, and color) from an RGB Image. Based on Panoptic 3D Scene Reconstruction From a Single RGB Image: [code](https://github.com/xheon/panoptic-reconstruction) | [paper](https://proceedings.neurips.cc/paper/2021/file/46031b3d04dc90994ca317a7c55c4289-Paper.pdf)
 
+![full_reconstruction](https://user-images.githubusercontent.com/18732666/184238669-9de7da80-7b07-4c70-bea2-c7a3601db0c6.png)
+
+
 ![05](https://user-images.githubusercontent.com/18732666/178697103-488e2650-ba0e-4bcd-bd9d-c6bf2d14807f.gif)
 ![06](https://user-images.githubusercontent.com/18732666/178697114-2201f081-875e-4033-9a0d-4e44dcdba55e.gif)
 
@@ -18,8 +21,7 @@ Full Scene Reconstruction of a 3D scene (geometry, instance ids, semantic labels
     ```bash
     docker build . -t scene_reconstruction
     ```
-
-Small version of the dataset: 1xz_KbgSvqX1yDTTtD0WfgMi6CrCVHoxp
+    
 ## Run Inference
 1. Run Docker container
     ```bash
