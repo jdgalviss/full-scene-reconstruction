@@ -35,7 +35,7 @@ Full Scene Reconstruction of a 3D scene (geometry, instance ids, semantic labels
     python tools/test_net.py
     ```
 ## Run Training
-You can download a subset of the dataset from [here](https://drive.google.com/file/d/1xz_KbgSvqX1yDTTtD0WfgMi6CrCVHoxp/view?usp=sharing). In case, you use this subset, you should modify the panoptic-reconstruction/lib/config/paths_catalog.py file in line 17 -> change **train_list_3d.txt** for **train_list_3d_subsampled_2000.txt**.
+
 
 2. Run Docker container. Make sure you set the <path-to-your-data-folder> in the run_docker.sh file to the correct path where you downloaded and extracted the data.
 
